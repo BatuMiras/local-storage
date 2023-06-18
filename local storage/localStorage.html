@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Local Storage Deneme</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: burlywood;
+        }
+
+        #container {
+            text-align: center;
+            margin-top: 200px;
+        }
+
+        h1 {
+            font-size: 100px;
+        }
+
+        .numberMoves {
+            width: 100px;
+            height: 50px;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 40px;
+        }
+
+        #increase:hover {
+            background-color: #9FF73C;
+        }
+
+        #decrease:hover {
+            background-color: #FB3D26;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        <h1 id="counter" class="numbers">0</h1>
+
+        <div id="counterButton">
+            <button id="increase" class="numberMoves">+</button>
+            <button id="decrease" class="numberMoves">-</button>
+        </div>
+
+    </div>
+
+<script>
+    
+    let counter = Number(localStorage.getItem('counter')) ? Number(localStorage.getItem('counter')) : 0
+    
+    counterNumber = document.querySelector("#counter")
+    increaseButton = document.querySelector("#increase")
+    decreaseButton = document.querySelector("#decrease")
+    
+    counterNumber.innerHTML = counter 
+    
+    increaseButton.addEventListener("click", clickEvent )
+    decreaseButton.addEventListener("click", clickEvent )
+    
+    function clickEvent () {
+        this.id == "increase" ? counter += 1 : counter -= 1
+        localStorage.setItem('counter', counter)
+        counterNumber.innerHTML = counter
+    }
+                                  
+    
+    
+    </script>
+
+
+
+</body>
+
+</html>
